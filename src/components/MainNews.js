@@ -27,19 +27,8 @@ export default class MainNews extends React.Component {
 
         return (
             <ScrollView>
-                {/* {
-                    dataMock.forEach(newsItem => {
-                        return (<NewsItem
-                            imagePath={newsItem.image}
-                            title={newsItem.title}
-                            subtitle={newsItem.subtitle}
-                            description={newsItem.description}
-                        />)
-                    })
-                } */}
                 {
                     dataMock.map((newsItem, index) => {
-                        console.log(index);
                         return (<NewsItem
                             key={index}
                             imagePath={newsItem.image}
