@@ -21,26 +21,3 @@ export default class App extends React.Component {
   }
 }
 
-// import MainNews from './src/components/MainNews'
-// import NewsItemTitle from './src/components/NewsItemTitle'
-// import NewsItemDescription from './src/components/NewsItemDescription'
-
-// class MainNewsDetail extends React.Component {
-
-//   render() {
-//     return (
-//       <View style={{ flex: 1 }}>
-//         <View style={{ flex: 1, backgroundColor: '#ccc' }}>
-//           <View>
-
-//           </View>
-//         </View>
-//         <View style={{ flex: 9 }}>
-//           <Text>
-
-//           </Text>
-//         </View>
-//       </View>
-//     )
-//   }
-// }

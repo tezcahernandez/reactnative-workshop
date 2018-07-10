@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, ToastAndroid, TextInput, ScrollView, Image, TouchableNativeFeedback, Button } from 'react-native';
 import MainNews from './MainNews';
+import MainNewsDetail from './MainNewsDetail';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index'
+import { Header } from 'react-native-elements';
 
 class MainLayout extends React.Component {
     renderComponent() {
@@ -12,7 +14,7 @@ class MainLayout extends React.Component {
                 viewResult = <MainNews />
                 break;
             case 'MainNewsDetail':
-                viewResult = <View><Text>MAIN NEWS DETAIL</Text></View>
+                viewResult = <MainNewsDetail />
                 break;
             default:
                 viewResult = <View><Text>NOT FOUND</Text></View>
@@ -22,15 +24,20 @@ class MainLayout extends React.Component {
     }
     render() {
         return (
-            <View>
-                <Button title={'Go to News Detail'} onPress={() => {
-                    this.props.navigateTo('MainNewsDetail')
-                }} />
-                {
-                    this.renderComponent()
-                }
+            <View style={{ flex: 1 }}>
+                <View>
+                    <Header
+                        leftComponent={{ icon: 'chevron-left', color: '#fff', onPress: () => { this.props.back() } }}
+                        centerComponent={{ text: this.props.currentNews.title, style: { color: '#fff' } }}
+                        rightComponent={{ icon: 'home', color: '#fff', onPress: () => { this.props.navigateToHome() } }}
+                    />
+                </View>
+                <View style={{ flex: 1 }}>
+                    {
+                        this.renderComponent()
+                    }
+                </View>
             </View>
-
         )
     }
 
@@ -38,6 +45,7 @@ class MainLayout extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        currentNews: state.CurrentNewsReducer,
         navigator: state.NavigatorReducer
     }
 }
