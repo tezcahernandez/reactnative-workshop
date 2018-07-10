@@ -1,7 +1,11 @@
+import React from 'react';
+import { StyleSheet, Text, View, ToastAndroid, TextInput, ScrollView, Image, TouchableNativeFeedback } from 'react-native';
+
 import NewsItemTitle from './NewsItemTitle';
 import NewsItemSubtitle from './NewsItemSubtitle';
 import NewsItemImage from './NewsItemImage';
 import NewsItemDescription from './NewsItemDescription';
+
 export default class NewsItem extends React.Component {
     render() {
       return (
